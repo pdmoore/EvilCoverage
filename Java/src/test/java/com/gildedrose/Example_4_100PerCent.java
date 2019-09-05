@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class Example_4_100PerCent {
 
-
+    // 64 different item test cases provide 100% line/branch coverage
 
     @Test
     public void approvals_100_percent_coverage() {
