@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -48,10 +47,24 @@ public class Example_2_FailingAssert {
     }
 
     @Test
+    public void LegendaryItem_SellinDate_NotDecreased_WhenNegative() {
+        GildedRose sut = new GildedRose(createItemArray("Sulfuras, Hand of Ragnaros", -1, 25));
+        sut.updateQuality();
+        assertEquals(-1, sut.items[0].sellIn);
+    }
+
+    @Test
     public void GenericItem_QualityDecreasesBeforeSellinDate() {
         GildedRose sut = new GildedRose(createItemArray("generic item", 5, 10));
         sut.updateQuality();
         assertEquals(9, sut.items[0].quality);
+    }
+
+    @Test
+    public void GenericItem_VerifyAllFields() {
+        GildedRose sut = new GildedRose(createItemArray("generic item", 5, 10));
+        sut.updateQuality();
+        assertEquals("generic item, 4, 9", sut.items[0].toString());
     }
 
     @Test
@@ -115,14 +128,14 @@ public class Example_2_FailingAssert {
     public void BackstagePass_QualityIncreasesMoreAsConcertNears_ButStillCapped() {
         GildedRose sut = new GildedRose(createItemArray(BACKSTAGE_PASS, 10, 49));
         sut.updateQuality();
-        assertEquals(51, sut.items[0].quality);
+        assertEquals(50, sut.items[0].quality);
     }
 
     @Test
-    public void BackstagePass_QualityIncreasesMuchMoreWhenConcertIsClose() {
-        GildedRose sut = new GildedRose(createItemArray(BACKSTAGE_PASS, 5, 40));
+    public void BackstagePass_QualityIncreasesMuchMoreWhenConcertIsClose_ButStillCapped() {
+        GildedRose sut = new GildedRose(createItemArray(BACKSTAGE_PASS, 5, 49));
         sut.updateQuality();
-        assertEquals(43, sut.items[0].quality);
+        assertEquals(50, sut.items[0].quality);
     }
 
     @Test
@@ -133,21 +146,13 @@ public class Example_2_FailingAssert {
     }
 
 
-
-//    @Test
-//    public void ShopContainsMultipleItems() {
-//        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-//                new Item("generic item", 10, 5)};
-//        GildedRose sut = new GildedRose(items);
-//
-//        sut.updateQuality();
-//
-//        assertAll("Each item in the shop should be updated correctly",
-//                () -> assertEquals(0, items[0].sellIn),
-//                () -> assertEquals(9, items[1].sellIn)
-//        );
-//    }
-
+    // Oops - there's a failing test and I don't have time to dig into why it is failing
+    @Test
+    public void BackstagePass_HandleSpecialCase() {
+        GildedRose sut = new GildedRose(createItemArray(BACKSTAGE_PASS, 5, 40));
+        sut.updateQuality();
+        assertEquals(42, sut.items[0].quality);
+    }
 
 
 }
