@@ -8,14 +8,14 @@ import static org.junit.Assert.assertEquals;
 
 public class Example_4_100PerCent {
 
-    // 64 different item test cases provide 100% line/branch coverage
+    // 48 different item test cases provide 100% line/branch coverage
 
     @Test
     public void approvals_100_percent_coverage() {
         CombinationApprovals.verifyAllCombinations(
                 this::doUpdateQuality,
                 new String[] {"foo", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"},
-                new Integer[] {-1, 0, 5, 11 },   //sellIn
+                new Integer[] {-1, 0, 11 },   //sellIn
                 new Integer[] {0, 1, 49, 50 }
         );
     }
