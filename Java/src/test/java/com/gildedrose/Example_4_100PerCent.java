@@ -1,10 +1,7 @@
 package com.gildedrose;
 
-import org.approvaltests.Approvals;
 import org.approvaltests.combinations.CombinationApprovals;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 public class Example_4_100PerCent {
 

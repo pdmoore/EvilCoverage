@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -10,6 +11,7 @@ public class Example_3_IncidentalCoverage {
     // Continue til 100% line coverage
 
     @Test
+    @Ignore
     public void AgedBrie_Past_SellinDate() {
         Item[] items = new Item[] { new Item("Aged Brie", 0, 25) };
         GildedRose sut = new GildedRose(items);
@@ -19,6 +21,7 @@ public class Example_3_IncidentalCoverage {
     // First test: Line 54%  Branch 12%
 
     @Test
+    @Ignore
     public void BackStagePass_Past_SellinDate() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 25) };
         GildedRose sut = new GildedRose(items);
@@ -28,6 +31,7 @@ public class Example_3_IncidentalCoverage {
     // Second test: Line 81%  Branch 28%
 
     @Test
+    @Ignore
     public void UnspecialItem() {
         Item[] items = new Item[] { new Item("generic", 0, 10) };
         GildedRose sut = new GildedRose((items));

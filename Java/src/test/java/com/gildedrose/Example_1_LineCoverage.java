@@ -25,7 +25,7 @@ public class Example_1_LineCoverage {
         Item[] items = new Item[] { new Item("foo", 0, 25) };
         GildedRose sut = new GildedRose(items);
         sut.updateQuality();
-        assertEquals("foo", sut.items[0].name);
+        assertEquals("foo, -1, 23", sut.items[0].toString());
     }
 
     @Test
